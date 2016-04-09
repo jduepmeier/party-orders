@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Unifest Order System</title>
+        <meta name="robots" content="noindex,nofollow" />
+        <link rel="stylesheet" type="text/css" href="static/css/main.css" />
+        <script type="application/javascript" src="static/js/common.js"></script>
+        <script type="application/javascript" src="static/js/main.js"></script>
+    </head>
+    <body onload="overview.init()">
+        <div id="actionbar">
+
+            <a href="index.html">Übersicht</a>
+            <a href="admin.html">Admin</a>
+        </div>
+        </div>
+        <h1>Bestellungen</h1>
+        <div id="content">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Wann</th>
+                        <th>Floor</th>
+                        <th>Stand</th>
+                        <th>Warteschlange</th>
+                        <th>Was</th>
+                        <th>Status</th>
+						<th>Aktion</th>
+                    </tr>
+                </thead>
+                <tbody id="orderTable">
+                </tbody>
+            </table>
+        </div>
+
+        <div id="footer">
+            <ul id="status">
+            </ul>
+        </div>
+    </body>
+</html>
