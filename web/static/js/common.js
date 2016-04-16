@@ -73,6 +73,48 @@ var ajax = ajax || {
 			return request;
 		},
 		/**
+		  Make an asynchronous DELETE request
+		  Calls /readyfunc/ with the request as parameter upon completion (readyState == 4)
+
+		  /payload/ should contain the data to be POSTed in the format specified by contentType,
+		  by defualt form-urlencoded
+
+
+		*/
+		asyncMethod: function(method, url, payload, readyfunc, errfunc, contentType, user, pass) {
+			contentType = contentType || "application/x-www-form-urlencoded";
+
+			var request = new this.ajaxRequest();
+			request.onreadystatechange =
+				function() {
+					if (request.readyState == 4) {
+						if (request.status == 200) {
+							readyfunc(request);
+						} else {
+							msgBoard.add({level: "error", 
+								content: request.status + ": " + request.statusText});
+						}
+					}
+				};
+
+			request.open(method, url, true, user, pass);
+			request.setRequestHeader("Content-type", contentType);
+			try {
+				request.send(payload);
+			}
+			catch (e) {
+				errfunc(e);
+			}
+			return request;
+		},
+		asyncPut: function(url, payload, readyfunc, errfunc, contentType, user, pass) {
+			this.asyncMethod("PUT", url, payload, readyfunc, errfunc, contentType, user, pass);
+		},
+
+		asyncDelete: function(url, payload, readyfunc, errfunc, contentType, user, pass) {
+			this.asyncMethod("DELETE", url, payload, readyfunc, errfunc, contentType, user, pass);
+		},
+		/**
 		  Perform a synchronous GET request
 		  This function does not do any error checking, so exceptions might
 		  be thrown.
