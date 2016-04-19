@@ -1,29 +1,4 @@
-var config = {
-	url: "//localhost/unifest/orders/backend/"
-};
-
-var msgBoard = {
-	add: function(msg) {
-		console.log(msg);
-
-		var item = document.createElement('li');
-		item.textContent = msg.content;
-		item.class = msg.level;
-		document.getElementById("status").appendChild(item);
-	},
-	checkResponse: function(xhr, successMsg) {
-		var response = JSON.parse(xhr.response);
-			if (response.status != 200) {
-				msgBoard.add(response.error);
-				return false;
-			} else {
-				msgBoard.add({level:"info",
-							content: successMsg
-						});
-				return true;
-			}
-	}
-};
+/* requires config.js, common.js */
 
 var queues = {
 	refreshQueues: function() {

@@ -1,17 +1,4 @@
-var config = {
-    url: "//localhost/unifest/orders/backend/"
-};
-
-var msgBoard = {
-    add: function(msg) {
-      console.log(msg);
-
-      var item = document.createElement('li');
-      item.textContent = msg.content;
-      item.class = msg.level;
-      document.getElementById("status").appendChild(item);
-    }
-};
+/* require config.js, common.js */
 
 var overview = {
   orders: [],
