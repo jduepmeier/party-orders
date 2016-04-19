@@ -27,6 +27,9 @@ var floors = {
 		});
 		elem.appendChild(input);
 	},
+	showPlaces: function(floor) {
+		window.location.href = window.location.href.replace("floors.html", "places.html") + "?floor=" + floor.id;
+	},
 	buildFloorsTable: function() {
 		var table = document.getElementById("floorsTable");
 		var self = this;
@@ -49,6 +52,7 @@ var floors = {
 			tr.appendChild(name);
 			var col = document.createElement("td");
 			col.appendChild(gui.createButton("Löschen", self.delete, [floor], self));
+			col.appendChild(gui.createButton("Stände", self.showPlaces, [floor], self));
 			tr.appendChild(col);
 
 			table.appendChild(tr);

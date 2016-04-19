@@ -91,7 +91,7 @@ class Floors {
 	}
 
 	public function getById($id) {
-		$sql = "SELECT * FROM orders WHERE id = :id";
+		$sql = "SELECT * FROM floors WHERE id = :id";
 
 		$params = [
 			":id" => $id
