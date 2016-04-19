@@ -194,12 +194,11 @@ var gui = gui || {
 };
 
 var msgBoard = {
-
 	add: function(msg) {
 		console.log(msg);
 
 		var item = document.createElement('li');
-		item.textContent = msg.content;
+		item.textContent = new Date().toLocaleString() + ": " + msg.content;
 		item.classList.add(msg.level);
 
 		document.getElementById("status").appendChild(item);
